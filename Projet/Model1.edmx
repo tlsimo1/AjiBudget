@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Projet2Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="Projet2ModelStoreContainer">
+          <EntitySet Name="construction" EntityType="Projet2Model.Store.construction" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ficheProjet" EntityType="Projet2Model.Store.ficheProjet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="foncier" EntityType="Projet2Model.Store.foncier" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="resultat" EntityType="Projet2Model.Store.resultat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="Projet2Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="Projet2Model.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="viabilisation" EntityType="Projet2Model.Store.viabilisation" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__construct__codeP__0DAF0CB0" Association="Projet2Model.Store.FK__construct__codeP__0DAF0CB0">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="construction" EntitySet="construction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__foncier__codePro__08EA5793" Association="Projet2Model.Store.FK__foncier__codePro__08EA5793">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="foncier" EntitySet="foncier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__resultat__codePr__3B75D760" Association="Projet2Model.Store.FK__resultat__codePr__3B75D760">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="resultat" EntitySet="resultat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__viabilisa__codeP__1273C1CD" Association="Projet2Model.Store.FK__viabilisa__codeP__1273C1CD">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="viabilisation" EntitySet="viabilisation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="construction">
+          <Key>
+            <PropertyRef Name="numconstruction" />
+          </Key>
+          <Property Name="numconstruction" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="constructionLogSoc" Type="float" />
+          <Property Name="contructionEqP1" Type="float" />
+          <Property Name="contructionEqP2" Type="float" />
+          <Property Name="codeProjet" Type="int" />
+        </EntityType>
+        <EntityType Name="ficheProjet">
+          <Key>
+            <PropertyRef Name="codeProjet" />
+          </Key>
+          <Property Name="codeProjet" Type="int" Nullable="false" />
+          <Property Name="typeLogement" Type="varchar" MaxLength="200" />
+          <Property Name="ouvrageAcc" Type="float" />
+          <Property Name="terrain" Type="float" />
+          <Property Name="referanceTerrain" Type="float" />
+          <Property Name="zone" Type="float" />
+          <Property Name="distinction" Type="varchar" MaxLength="200" />
+          <Property Name="prixDGI" Type="float" />
+          <Property Name="prixPorteurProjet" Type="float" />
+          <Property Name="surfacePlache" Type="float" />
+          <Property Name="surfaceVentable" Type="float" />
+          <Property Name="surfaceVoirie" Type="float" />
+        </EntityType>
+        <EntityType Name="foncier">
+          <Key>
+            <PropertyRef Name="numfoncier" />
+          </Key>
+          <Property Name="numfoncier" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="superficieterrain" Type="float" />
+          <Property Name="enregistrementcf" Type="float" />
+          <Property Name="notaire" Type="float" />
+          <Property Name="tpi" Type="float" />
+          <Property Name="codeProjet" Type="int" />
+        </EntityType>
+        <EntityType Name="resultat">
+          <Key>
+            <PropertyRef Name="numresultat" />
+          </Key>
+          <Property Name="numresultat" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TreeainTf" Type="float" />
+          <Property Name="EnregistrementCF" Type="float" />
+          <Property Name="Notaire" Type="float" />
+          <Property Name="TPI" Type="float" />
+          <Property Name="Somme" Type="float" />
+          <Property Name="viabilisation" Type="float" />
+          <Property Name="ConstructionLogSR3" Type="float" />
+          <Property Name="constructionEquipePR1" Type="float" />
+          <Property Name="CconstructionEquipePR2" Type="float" />
+          <Property Name="FraisGenereux" Type="float" />
+          <Property Name="SommeTotal" Type="float" />
+          <Property Name="username" Type="varchar" MaxLength="30" />
+          <Property Name="codeProjet" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="varchar" MaxLength="20" />
+          <Property Name="Adress" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Pass" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="viabilisation">
+          <Key>
+            <PropertyRef Name="numviabilisation" />
+          </Key>
+          <Property Name="numviabilisation" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pont" Type="float" />
+          <Property Name="fosse" Type="float" />
+          <Property Name="chateauD" Type="float" />
+          <Property Name="codeProjet" Type="int" />
+        </EntityType>
+        <Association Name="FK__construct__codeP__0DAF0CB0">
+          <End Role="ficheProjet" Type="Projet2Model.Store.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="construction" Type="Projet2Model.Store.construction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="construction">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__foncier__codePro__08EA5793">
+          <End Role="ficheProjet" Type="Projet2Model.Store.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="foncier" Type="Projet2Model.Store.foncier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="foncier">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__resultat__codePr__3B75D760">
+          <End Role="ficheProjet" Type="Projet2Model.Store.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="resultat" Type="Projet2Model.Store.resultat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="resultat">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__viabilisa__codeP__1273C1CD">
+          <End Role="ficheProjet" Type="Projet2Model.Store.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="viabilisation" Type="Projet2Model.Store.viabilisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="viabilisation">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Projet2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Projet2Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="construction" EntityType="Projet2Model.construction" />
+          <EntitySet Name="ficheProjet" EntityType="Projet2Model.ficheProjet" />
+          <EntitySet Name="foncier" EntityType="Projet2Model.foncier" />
+          <EntitySet Name="resultat" EntityType="Projet2Model.resultat" />
+          <EntitySet Name="sysdiagrams" EntityType="Projet2Model.sysdiagrams" />
+          <EntitySet Name="Users" EntityType="Projet2Model.Users" />
+          <EntitySet Name="viabilisation" EntityType="Projet2Model.viabilisation" />
+          <AssociationSet Name="FK__construct__codeP__0DAF0CB0" Association="Projet2Model.FK__construct__codeP__0DAF0CB0">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="construction" EntitySet="construction" />
+          </AssociationSet>
+          <AssociationSet Name="FK__foncier__codePro__08EA5793" Association="Projet2Model.FK__foncier__codePro__08EA5793">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="foncier" EntitySet="foncier" />
+          </AssociationSet>
+          <AssociationSet Name="FK__resultat__codePr__3B75D760" Association="Projet2Model.FK__resultat__codePr__3B75D760">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="resultat" EntitySet="resultat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__viabilisa__codeP__1273C1CD" Association="Projet2Model.FK__viabilisa__codeP__1273C1CD">
+            <End Role="ficheProjet" EntitySet="ficheProjet" />
+            <End Role="viabilisation" EntitySet="viabilisation" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="construction">
+          <Key>
+            <PropertyRef Name="numconstruction" />
+          </Key>
+          <Property Name="numconstruction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="constructionLogSoc" Type="Double" />
+          <Property Name="contructionEqP1" Type="Double" />
+          <Property Name="contructionEqP2" Type="Double" />
+          <Property Name="codeProjet" Type="Int32" />
+          <NavigationProperty Name="ficheProjet" Relationship="Projet2Model.FK__construct__codeP__0DAF0CB0" FromRole="construction" ToRole="ficheProjet" />
+        </EntityType>
+        <EntityType Name="ficheProjet">
+          <Key>
+            <PropertyRef Name="codeProjet" />
+          </Key>
+          <Property Name="codeProjet" Type="Int32" Nullable="false" />
+          <Property Name="typeLogement" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="ouvrageAcc" Type="Double" />
+          <Property Name="terrain" Type="Double" />
+          <Property Name="referanceTerrain" Type="Double" />
+          <Property Name="zone" Type="Double" />
+          <Property Name="distinction" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="prixDGI" Type="Double" />
+          <Property Name="prixPorteurProjet" Type="Double" />
+          <Property Name="surfacePlache" Type="Double" />
+          <Property Name="surfaceVentable" Type="Double" />
+          <Property Name="surfaceVoirie" Type="Double" />
+          <NavigationProperty Name="construction" Relationship="Projet2Model.FK__construct__codeP__0DAF0CB0" FromRole="ficheProjet" ToRole="construction" />
+          <NavigationProperty Name="foncier" Relationship="Projet2Model.FK__foncier__codePro__08EA5793" FromRole="ficheProjet" ToRole="foncier" />
+          <NavigationProperty Name="resultat" Relationship="Projet2Model.FK__resultat__codePr__3B75D760" FromRole="ficheProjet" ToRole="resultat" />
+          <NavigationProperty Name="viabilisation" Relationship="Projet2Model.FK__viabilisa__codeP__1273C1CD" FromRole="ficheProjet" ToRole="viabilisation" />
+        </EntityType>
+        <EntityType Name="foncier">
+          <Key>
+            <PropertyRef Name="numfoncier" />
+          </Key>
+          <Property Name="numfoncier" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="superficieterrain" Type="Double" />
+          <Property Name="enregistrementcf" Type="Double" />
+          <Property Name="notaire" Type="Double" />
+          <Property Name="tpi" Type="Double" />
+          <Property Name="codeProjet" Type="Int32" />
+          <NavigationProperty Name="ficheProjet" Relationship="Projet2Model.FK__foncier__codePro__08EA5793" FromRole="foncier" ToRole="ficheProjet" />
+        </EntityType>
+        <EntityType Name="resultat">
+          <Key>
+            <PropertyRef Name="numresultat" />
+          </Key>
+          <Property Name="numresultat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TreeainTf" Type="Double" />
+          <Property Name="EnregistrementCF" Type="Double" />
+          <Property Name="Notaire" Type="Double" />
+          <Property Name="TPI" Type="Double" />
+          <Property Name="Somme" Type="Double" />
+          <Property Name="viabilisation" Type="Double" />
+          <Property Name="ConstructionLogSR3" Type="Double" />
+          <Property Name="constructionEquipePR1" Type="Double" />
+          <Property Name="CconstructionEquipePR2" Type="Double" />
+          <Property Name="FraisGenereux" Type="Double" />
+          <Property Name="SommeTotal" Type="Double" />
+          <Property Name="username" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="codeProjet" Type="Int32" />
+          <NavigationProperty Name="ficheProjet" Relationship="Projet2Model.FK__resultat__codePr__3B75D760" FromRole="resultat" ToRole="ficheProjet" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Adress" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Pass" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="viabilisation">
+          <Key>
+            <PropertyRef Name="numviabilisation" />
+          </Key>
+          <Property Name="numviabilisation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pont" Type="Double" />
+          <Property Name="fosse" Type="Double" />
+          <Property Name="chateauD" Type="Double" />
+          <Property Name="codeProjet" Type="Int32" />
+          <NavigationProperty Name="ficheProjet" Relationship="Projet2Model.FK__viabilisa__codeP__1273C1CD" FromRole="viabilisation" ToRole="ficheProjet" />
+        </EntityType>
+        <Association Name="FK__construct__codeP__0DAF0CB0">
+          <End Role="ficheProjet" Type="Projet2Model.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="construction" Type="Projet2Model.construction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="construction">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__foncier__codePro__08EA5793">
+          <End Role="ficheProjet" Type="Projet2Model.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="foncier" Type="Projet2Model.foncier" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="foncier">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__resultat__codePr__3B75D760">
+          <End Role="ficheProjet" Type="Projet2Model.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="resultat" Type="Projet2Model.resultat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="resultat">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__viabilisa__codeP__1273C1CD">
+          <End Role="ficheProjet" Type="Projet2Model.ficheProjet" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="viabilisation" Type="Projet2Model.viabilisation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ficheProjet">
+              <PropertyRef Name="codeProjet" />
+            </Principal>
+            <Dependent Role="viabilisation">
+              <PropertyRef Name="codeProjet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Projet2ModelStoreContainer" CdmEntityContainer="Projet2Entities1">
+          <EntitySetMapping Name="construction">
+            <EntityTypeMapping TypeName="Projet2Model.construction">
+              <MappingFragment StoreEntitySet="construction">
+                <ScalarProperty Name="numconstruction" ColumnName="numconstruction" />
+                <ScalarProperty Name="constructionLogSoc" ColumnName="constructionLogSoc" />
+                <ScalarProperty Name="contructionEqP1" ColumnName="contructionEqP1" />
+                <ScalarProperty Name="contructionEqP2" ColumnName="contructionEqP2" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ficheProjet">
+            <EntityTypeMapping TypeName="Projet2Model.ficheProjet">
+              <MappingFragment StoreEntitySet="ficheProjet">
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+                <ScalarProperty Name="typeLogement" ColumnName="typeLogement" />
+                <ScalarProperty Name="ouvrageAcc" ColumnName="ouvrageAcc" />
+                <ScalarProperty Name="terrain" ColumnName="terrain" />
+                <ScalarProperty Name="referanceTerrain" ColumnName="referanceTerrain" />
+                <ScalarProperty Name="zone" ColumnName="zone" />
+                <ScalarProperty Name="distinction" ColumnName="distinction" />
+                <ScalarProperty Name="prixDGI" ColumnName="prixDGI" />
+                <ScalarProperty Name="prixPorteurProjet" ColumnName="prixPorteurProjet" />
+                <ScalarProperty Name="surfacePlache" ColumnName="surfacePlache" />
+                <ScalarProperty Name="surfaceVentable" ColumnName="surfaceVentable" />
+                <ScalarProperty Name="surfaceVoirie" ColumnName="surfaceVoirie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="foncier">
+            <EntityTypeMapping TypeName="Projet2Model.foncier">
+              <MappingFragment StoreEntitySet="foncier">
+                <ScalarProperty Name="numfoncier" ColumnName="numfoncier" />
+                <ScalarProperty Name="superficieterrain" ColumnName="superficieterrain" />
+                <ScalarProperty Name="enregistrementcf" ColumnName="enregistrementcf" />
+                <ScalarProperty Name="notaire" ColumnName="notaire" />
+                <ScalarProperty Name="tpi" ColumnName="tpi" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="resultat">
+            <EntityTypeMapping TypeName="Projet2Model.resultat">
+              <MappingFragment StoreEntitySet="resultat">
+                <ScalarProperty Name="numresultat" ColumnName="numresultat" />
+                <ScalarProperty Name="TreeainTf" ColumnName="TreeainTf" />
+                <ScalarProperty Name="EnregistrementCF" ColumnName="EnregistrementCF" />
+                <ScalarProperty Name="Notaire" ColumnName="Notaire" />
+                <ScalarProperty Name="TPI" ColumnName="TPI" />
+                <ScalarProperty Name="Somme" ColumnName="Somme" />
+                <ScalarProperty Name="viabilisation" ColumnName="viabilisation" />
+                <ScalarProperty Name="ConstructionLogSR3" ColumnName="ConstructionLogSR3" />
+                <ScalarProperty Name="constructionEquipePR1" ColumnName="constructionEquipePR1" />
+                <ScalarProperty Name="CconstructionEquipePR2" ColumnName="CconstructionEquipePR2" />
+                <ScalarProperty Name="FraisGenereux" ColumnName="FraisGenereux" />
+                <ScalarProperty Name="SommeTotal" ColumnName="SommeTotal" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Projet2Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Projet2Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="viabilisation">
+            <EntityTypeMapping TypeName="Projet2Model.viabilisation">
+              <MappingFragment StoreEntitySet="viabilisation">
+                <ScalarProperty Name="numviabilisation" ColumnName="numviabilisation" />
+                <ScalarProperty Name="pont" ColumnName="pont" />
+                <ScalarProperty Name="fosse" ColumnName="fosse" />
+                <ScalarProperty Name="chateauD" ColumnName="chateauD" />
+                <ScalarProperty Name="codeProjet" ColumnName="codeProjet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="Projet2Model.construction" Width="1.5" PointX="3" PointY="1.5" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projet2Model.ficheProjet" Width="1.5" PointX="0.75" PointY="5.875" Height="4.0956022135416656" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projet2Model.foncier" Width="1.5" PointX="3" PointY="4.375" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projet2Model.resultat" Width="1.5" PointX="3" PointY="7.5" Height="3.9033007812499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projet2Model.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projet2Model.Users" Width="1.5" PointX="5.75" PointY="3.75" Height="1.9802864583333322" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projet2Model.viabilisation" Width="1.5" PointX="3" PointY="12.125" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="Projet2Model.FK__construct__codeP__0DAF0CB0" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="5.875" />
+          <ConnectorPoint PointX="1.5" PointY="2.5862939453125" />
+          <ConnectorPoint PointX="3" PointY="2.5862939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="Projet2Model.FK__foncier__codePro__08EA5793" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.3074446614583328" />
+          <ConnectorPoint PointX="3" PointY="6.3074446614583328" />
+        </AssociationConnector>
+        <AssociationConnector Association="Projet2Model.FK__resultat__codePr__3B75D760" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.7353011067708337" />
+          <ConnectorPoint PointX="3" PointY="8.7353011067708337" />
+        </AssociationConnector>
+        <AssociationConnector Association="Projet2Model.FK__viabilisa__codeP__1273C1CD" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="9.9706022135416656" />
+          <ConnectorPoint PointX="1.5" PointY="13.2112939453125" />
+          <ConnectorPoint PointX="3" PointY="13.2112939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

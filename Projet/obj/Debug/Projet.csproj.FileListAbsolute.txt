@@ -1,0 +1,29 @@
+D:\tuto KodVinkat\Projet\Projet\bin\Projet.dll
+D:\tuto KodVinkat\Projet\Projet\bin\Projet.pdb
+D:\tuto KodVinkat\Projet\Projet\obj\Debug\Projet.dll
+D:\tuto KodVinkat\Projet\Projet\obj\Debug\Projet.pdb
+C:\Users\agitech\Desktop\app\Projet\Projet\bin\Projet.dll
+C:\Users\agitech\Desktop\app\Projet\Projet\bin\Projet.pdb
+C:\Users\agitech\Desktop\app\Projet\Projet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\agitech\Desktop\app\Projet\Projet\obj\Debug\Projet.dll
+C:\Users\agitech\Desktop\app\Projet\Projet\obj\Debug\Projet.pdb
+C:\Users\MONPC\Desktop\Projet\Projet\bin\Projet.dll
+C:\Users\MONPC\Desktop\Projet\Projet\bin\Projet.pdb
+C:\Users\MONPC\Desktop\Projet\Projet\obj\Debug\Projet.dll
+C:\Users\MONPC\Desktop\Projet\Projet\obj\Debug\Projet.pdb
+C:\Users\agitech\Desktop\Projet\Projet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\agitech\Desktop\Projet\Projet\obj\Debug\Projet.dll
+C:\Users\agitech\Desktop\Projet\Projet\obj\Debug\Projet.pdb
+C:\Users\agitech\Desktop\Projet\Projet\bin\Projet.dll
+C:\Users\agitech\Desktop\Projet\Projet\bin\Projet.pdb
+J:\Projet\Projet\bin\Projet.dll
+J:\Projet\Projet\bin\Projet.pdb
+J:\Projet\Projet\obj\Debug\Projet.dll
+J:\Projet\Projet\obj\Debug\Projet.pdb
+C:\Users\MONPC\Desktop\Projet\Projet\obj\Debug\Projet.csprojResolveAssemblyReference.cache
+C:\Users\MONPC\Desktop\Projet\Projet\obj\Debug\RdlCompile.cache
+C:\Users\MONPC\Desktop\Projet\Projet\obj\Debug\RdlCompile.compiled
+E:\bureau 2\Projet\Projet\obj\Debug\Projet.csprojAssemblyReference.cache
+E:\bureau 2\Projet\Projet\obj\Debug\Projet.csproj.CoreCompileInputs.cache
+E:\bureau 2\Projet\Projet\obj\Debug\Projet.dll
+E:\bureau 2\Projet\Projet\obj\Debug\Projet.pdb
